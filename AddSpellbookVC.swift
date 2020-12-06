@@ -13,10 +13,13 @@ class AddSpellbookVC: UIViewController, UITableViewDataSource, UITableViewDelega
 
     var titleBar = TitleBar()
     var spellsTable = UITableView()
-    var editionButton = SelectorButton()
-    var editionPicker = Picker()
-    var classButton = SelectorButton()
-    var classPicker = Picker()
+    var characterNameField = InputField()
+    var editionField = InputField()
+    var classField = InputField()
+    var editionPickerView = UIView()
+    var classPickerView = UIView()
+    var editionPicker = UIPickerView()
+    var classPicker = UIPickerView()
     
     var selectedEdition = ""
     var spellbookClasses = [CharacterClass]()
@@ -26,12 +29,6 @@ class AddSpellbookVC: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         layoutView()
-        
-    }
-    
-    @objc func backButtonPressed(sender: SystemButton!) {
-        
-        dismiss(animated: true, completion: nil)
         
     }
     
@@ -119,40 +116,12 @@ class AddSpellbookVC: UIViewController, UITableViewDataSource, UITableViewDelega
             
             selectedEdition = Shared.editions[row]
             
-        } else {
+        }
+        
+        if pickerView == classPicker {
             
             selectedClass = spellbookClasses[row]
             
         }
-    }
-    
-    @objc func editionButtonPressed(sender: SystemButton!) {
-        
-        layoutEditionPicker()
-        
-    }
-    
-    @objc func classButtonPressed(sender: SystemButton!) {
-        
-        layoutClassPicker()
-        
-    }
-    
-    @objc func updateEdition(sender: SystemButton!) {
-        
-        print("Done Pressed")
-        editionButton.subtitle = selectedEdition
-        editionButton.refreshButton()
-        
-        classButton.isEnabled = true
-        
-    }
-    
-    @objc func updateClass(sender: SystemButton!) {
-        
-        print("Done Pressed")
-        classButton.subtitle = selectedClass.rawValue
-        classButton.refreshButton()
-        
     }
 }

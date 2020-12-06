@@ -24,10 +24,52 @@
                     </view>
                     <connections>
                         <segue destination="Vd5-GH-lGd" kind="show" identifier="addSpellbook" id="8pk-A8-XeZ"/>
+                        <segue destination="oD2-yR-rEt" kind="presentation" identifier="showSettings" modalPresentationStyle="overCurrentContext" id="7Oh-dc-zSI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="Sny-x0-5tx">
+            <objects>
+                <viewController id="oD2-yR-rEt" customClass="SettingsVC" customModule="Spellbook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vjf-PG-XtL"/>
+                        <viewControllerLayoutGuide type="bottom" id="HgL-Fy-6Hh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Pm-XH-4bh">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="300"/>
+                    <connections>
+                        <segue destination="Bgw-HF-ytP" kind="show" identifier="showCompendium" id="ptM-6A-ADI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gHg-MV-AUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="670" y="818"/>
+        </scene>
+        <!--CompendiumVC-->
+        <scene sceneID="mbz-61-Ur5">
+            <objects>
+                <viewController id="Bgw-HF-ytP" customClass="CompendiumVC" customModule="Spellbook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kqb-1X-VKg"/>
+                        <viewControllerLayoutGuide type="bottom" id="T0X-tR-2OS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6RM-k4-fCs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j23-MB-ey5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1374" y="817"/>
         </scene>
         <!--Add SpellbookVC-->
         <scene sceneID="nzU-Kz-ou1">

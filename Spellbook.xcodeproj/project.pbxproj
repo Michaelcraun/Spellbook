@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D592DFC659270848B691D86 /* Pods_Spellbook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737174F935C47D650FDE05E5 /* Pods_Spellbook.framework */; };
 		9B33AAC91F8311E40027E0F5 /* CompendiumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B33AAC81F8311E40027E0F5 /* CompendiumVC.swift */; };
 		9B33AACB1F8312600027E0F5 /* CompendiumLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B33AACA1F8312600027E0F5 /* CompendiumLayout.swift */; };
 		9B33AACF1F83140A0027E0F5 /* Spellbook.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9B33AACE1F83140A0027E0F5 /* Spellbook.xml */; };
+		9B4A81871FBA30E1003CE643 /* AddSpellbookFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A81861FBA30E1003CE643 /* AddSpellbookFunctions.swift */; };
 		9B797D0D1F79CBEC00A3449F /* MainLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B797D0C1F79CBEC00A3449F /* MainLayout.swift */; };
 		9B797D121F79CFBD00A3449F /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B797D111F79CFBD00A3449F /* TitleBar.swift */; };
 		9B797D141F7A162400A3449F /* SystemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B797D131F7A162400A3449F /* SystemButton.swift */; };
@@ -23,7 +25,6 @@
 		9BAA94391F7D535D001FEE61 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA94381F7D535D001FEE61 /* InputField.swift */; };
 		9BAA943B1F7D559D001FEE61 /* SelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA943A1F7D559D001FEE61 /* SelectorButton.swift */; };
 		9BAA94431F7EC181001FEE61 /* SpellCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA94421F7EC181001FEE61 /* SpellCell.swift */; };
-		9BAA94471F7ECC46001FEE61 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA94461F7ECC46001FEE61 /* Picker.swift */; };
 		9BAA944A1F82EEC8001FEE61 /* Spells5e.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA94491F82EEC8001FEE61 /* Spells5e.swift */; };
 		9BE826361F748936007ECF9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE826351F748936007ECF9F /* AppDelegate.swift */; };
 		9BE826381F748936007ECF9F /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE826371F748936007ECF9F /* MainVC.swift */; };
@@ -31,12 +32,18 @@
 		9BE8263E1F748936007ECF9F /* Spellbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BE8263C1F748936007ECF9F /* Spellbook.xcdatamodeld */; };
 		9BE826401F748936007ECF9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE8263F1F748936007ECF9F /* Assets.xcassets */; };
 		9BE826431F748936007ECF9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE826411F748936007ECF9F /* LaunchScreen.storyboard */; };
+		9BED58131F9619CF00E93FFD /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BED58121F9619CF00E93FFD /* SettingsVC.swift */; };
+		9BED58151F961C2500E93FFD /* SettingsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BED58141F961C2500E93FFD /* SettingsLayout.swift */; };
+		9BED58171F961EE300E93FFD /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BED58161F961EE300E93FFD /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D653BA729B29EB7F5027B5B /* Pods-Spellbook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spellbook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spellbook/Pods-Spellbook.debug.xcconfig"; sourceTree = "<group>"; };
+		737174F935C47D650FDE05E5 /* Pods_Spellbook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spellbook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B33AAC81F8311E40027E0F5 /* CompendiumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumVC.swift; sourceTree = "<group>"; };
 		9B33AACA1F8312600027E0F5 /* CompendiumLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumLayout.swift; sourceTree = "<group>"; };
 		9B33AACE1F83140A0027E0F5 /* Spellbook.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Spellbook.xml; sourceTree = "<group>"; };
+		9B4A81861FBA30E1003CE643 /* AddSpellbookFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpellbookFunctions.swift; sourceTree = "<group>"; };
 		9B797D0C1F79CBEC00A3449F /* MainLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLayout.swift; sourceTree = "<group>"; };
 		9B797D111F79CFBD00A3449F /* TitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
 		9B797D131F7A162400A3449F /* SystemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemButton.swift; sourceTree = "<group>"; };
@@ -50,7 +57,6 @@
 		9BAA94381F7D535D001FEE61 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		9BAA943A1F7D559D001FEE61 /* SelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorButton.swift; sourceTree = "<group>"; };
 		9BAA94421F7EC181001FEE61 /* SpellCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellCell.swift; sourceTree = "<group>"; };
-		9BAA94461F7ECC46001FEE61 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 		9BAA94491F82EEC8001FEE61 /* Spells5e.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spells5e.swift; sourceTree = "<group>"; };
 		9BE826321F748936007ECF9F /* Spellbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spellbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE826351F748936007ECF9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +66,10 @@
 		9BE8263F1F748936007ECF9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BE826421F748936007ECF9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE826441F748936007ECF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BED58121F9619CF00E93FFD /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		9BED58141F961C2500E93FFD /* SettingsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLayout.swift; sourceTree = "<group>"; };
+		9BED58161F961EE300E93FFD /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		EAB64A1BF10EC141DAABC2A4 /* Pods-Spellbook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spellbook.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spellbook/Pods-Spellbook.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +77,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D592DFC659270848B691D86 /* Pods_Spellbook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		729BB39AF74E1790CA50D4DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D653BA729B29EB7F5027B5B /* Pods-Spellbook.debug.xcconfig */,
+				EAB64A1BF10EC141DAABC2A4 /* Pods-Spellbook.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9B797D0B1F79CBD600A3449F /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +115,8 @@
 		9B797D0F1F79CFA900A3449F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9BAA94411F7DE312001FEE61 /* SpellsTable */,
-				9B797D191F7AACD500A3449F /* SpellbookCollection */,
+				9BAA94411F7DE312001FEE61 /* Cells */,
+				9B797D191F7AACD500A3449F /* Layout */,
 				9B797D101F79CFB100A3449F /* Style */,
 			);
 			path = View;
@@ -109,35 +129,36 @@
 				9B797D131F7A162400A3449F /* SystemButton.swift */,
 				9BAA94381F7D535D001FEE61 /* InputField.swift */,
 				9BAA943A1F7D559D001FEE61 /* SelectorButton.swift */,
-				9BAA94461F7ECC46001FEE61 /* Picker.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
 		};
-		9B797D191F7AACD500A3449F /* SpellbookCollection */ = {
+		9B797D191F7AACD500A3449F /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				9B797D151F7A1B6900A3449F /* SpellbookCollectionCell.swift */,
 				9B797D171F7AACAE00A3449F /* SpellbookCollectionLayout.swift */,
 			);
-			path = SpellbookCollection;
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		9BAA93D61F7B3FC7001FEE61 /* AddSpellbookVC */ = {
 			isa = PBXGroup;
 			children = (
 				9BAA93D71F7B4009001FEE61 /* AddSpellbookVC.swift */,
+				9B4A81861FBA30E1003CE643 /* AddSpellbookFunctions.swift */,
 				9BAA94341F7D3C20001FEE61 /* AddSpellbookLayout.swift */,
 			);
 			name = AddSpellbookVC;
 			sourceTree = "<group>";
 		};
-		9BAA94411F7DE312001FEE61 /* SpellsTable */ = {
+		9BAA94411F7DE312001FEE61 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				9BAA94421F7EC181001FEE61 /* SpellCell.swift */,
+				9BED58161F961EE300E93FFD /* SettingsCell.swift */,
+				9B797D151F7A1B6900A3449F /* SpellbookCollectionCell.swift */,
 			);
-			path = SpellsTable;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		9BE826291F748936007ECF9F = {
@@ -148,6 +169,8 @@
 				9BE8264A1F74899C007ECF9F /* Controller */,
 				9BE826341F748936007ECF9F /* Spellbook */,
 				9BE826331F748936007ECF9F /* Products */,
+				729BB39AF74E1790CA50D4DA /* Pods */,
+				EC20CD8F4B547D8A3604CBDB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,9 +197,10 @@
 		9BE8264A1F74899C007ECF9F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9BAA93D61F7B3FC7001FEE61 /* AddSpellbookVC */,
-				9B797D0E1F79CF8600A3449F /* CompendiumVC */,
 				9B797D0B1F79CBD600A3449F /* MainVC */,
+				9BAA93D61F7B3FC7001FEE61 /* AddSpellbookVC */,
+				9BED58101F9619AF00E93FFD /* SettingsVC */,
+				9B797D0E1F79CF8600A3449F /* CompendiumVC */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -193,6 +217,23 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		9BED58101F9619AF00E93FFD /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				9BED58121F9619CF00E93FFD /* SettingsVC.swift */,
+				9BED58141F961C2500E93FFD /* SettingsLayout.swift */,
+			);
+			name = SettingsVC;
+			sourceTree = "<group>";
+		};
+		EC20CD8F4B547D8A3604CBDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				737174F935C47D650FDE05E5 /* Pods_Spellbook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BE826471F748936007ECF9F /* Build configuration list for PBXNativeTarget "Spellbook" */;
 			buildPhases = (
+				5088FA1BC492EF0F20F013B5 /* [CP] Check Pods Manifest.lock */,
 				9BE8262E1F748936007ECF9F /* Sources */,
 				9BE8262F1F748936007ECF9F /* Frameworks */,
 				9BE826301F748936007ECF9F /* Resources */,
+				A714082EA852C5088F72BF76 /* [CP] Embed Pods Frameworks */,
+				AC8527B2E2A56E0E65AF1FF2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,21 +307,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5088FA1BC492EF0F20F013B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A714082EA852C5088F72BF76 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spellbook/Pods-Spellbook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC8527B2E2A56E0E65AF1FF2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spellbook/Pods-Spellbook-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9BE8262E1F748936007ECF9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9BAA94371F7D4A7F001FEE61 /* Shared.swift in Sources */,
-				9BAA94471F7ECC46001FEE61 /* Picker.swift in Sources */,
 				9BAA944A1F82EEC8001FEE61 /* Spells5e.swift in Sources */,
 				9B797D0D1F79CBEC00A3449F /* MainLayout.swift in Sources */,
 				9BAA94351F7D3C20001FEE61 /* AddSpellbookLayout.swift in Sources */,
+				9BED58151F961C2500E93FFD /* SettingsLayout.swift in Sources */,
 				9BAA94391F7D535D001FEE61 /* InputField.swift in Sources */,
 				9BE826381F748936007ECF9F /* MainVC.swift in Sources */,
 				9B797D121F79CFBD00A3449F /* TitleBar.swift in Sources */,
 				9B33AACB1F8312600027E0F5 /* CompendiumLayout.swift in Sources */,
 				9BE826361F748936007ECF9F /* AppDelegate.swift in Sources */,
+				9BED58171F961EE300E93FFD /* SettingsCell.swift in Sources */,
+				9BED58131F9619CF00E93FFD /* SettingsVC.swift in Sources */,
 				9BAA93D81F7B4009001FEE61 /* AddSpellbookVC.swift in Sources */,
 				9B797D141F7A162400A3449F /* SystemButton.swift in Sources */,
 				9BE8263E1F748936007ECF9F /* Spellbook.xcdatamodeld in Sources */,
@@ -286,6 +380,7 @@
 				9BAA93D51F7B1EBA001FEE61 /* MainCoreDataHelper.swift in Sources */,
 				9B797D181F7AACAF00A3449F /* SpellbookCollectionLayout.swift in Sources */,
 				9BAA943B1F7D559D001FEE61 /* SelectorButton.swift in Sources */,
+				9B4A81871FBA30E1003CE643 /* AddSpellbookFunctions.swift in Sources */,
 				9B797D1B1F7AB0B500A3449F /* CharacterClass.swift in Sources */,
 				9B33AAC91F8311E40027E0F5 /* CompendiumVC.swift in Sources */,
 			);
@@ -422,6 +517,7 @@
 		};
 		9BE826481F748936007ECF9F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D653BA729B29EB7F5027B5B /* Pods-Spellbook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 96SB47X67B;
@@ -429,13 +525,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CraunicProductions.Spellbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		9BE826491F748936007ECF9F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAB64A1BF10EC141DAABC2A4 /* Pods-Spellbook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 96SB47X67B;
@@ -443,7 +540,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CraunicProductions.Spellbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

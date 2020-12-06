@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="16G1036" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CharacterClass" representedClassName="CharacterClass" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="edition" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Spellbook" representedClassName="Spellbook" syncable="YES" codeGenerationType="class">
         <attribute name="characterClass" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="characterName" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,5 +14,6 @@
     </entity>
     <elements>
         <element name="Spellbook" positionX="-54" positionY="36" width="128" height="105"/>
+        <element name="CharacterClass" positionX="-54" positionY="63" width="128" height="105"/>
     </elements>
 </model>

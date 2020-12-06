@@ -11,7 +11,10 @@ import CoreData
 
 class MainVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate {
     
+    //MARK: UI Variables
     let titleBar = TitleBar()
+    let settingsButton = SystemButton()
+    let newSpellbookButton = SystemButton()
     var spellbookCollection: UICollectionView!
     
     var controller: NSFetchedResultsController<Spellbook>!
@@ -24,34 +27,6 @@ class MainVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         attemptFetch()
         layoutView()
         createClassArrays()
-        
-    }
-    
-    //MARK: CollectionView DataSource and Delegate
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if let objects = controller.fetchedObjects, objects.count > 0 {
-            
-            return objects.count
-            
-        } else {
-            
-            return 0
-            
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if let objects = controller.fetchedObjects, objects.count > 0 {
-            
-            spellbooks = objects
-            
-        }
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spellbookCell", for: indexPath) as! SpellbookCell
-        cell.configureCell(spellbook: spellbooks[indexPath.row])
-        return cell
         
     }
     
@@ -77,6 +52,7 @@ class MainVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     
     @objc func settingsPressed(sender: UIButton!) {
         
+        performSegue(withIdentifier: "showSettings", sender: sender)
         
     }
     
@@ -99,5 +75,45 @@ class MainVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
                 }
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showSettings" {
+            
+            if let destination = segue.destination as? SettingsVC {
+                
+                destination.modalPresentationStyle = .popover
+                
+            }
+        }
+    }
+    
+    //MARK: CollectionView DataSource and Delegate
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if let objects = controller.fetchedObjects, objects.count > 0 {
+            
+            return objects.count
+            
+        } else {
+            
+            return 0
+            
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spellbookCell", for: indexPath) as! SpellbookCell
+        
+        if let objects = controller.fetchedObjects, objects.count > 0 {
+            
+            cell.configureCell(spellbook: objects[indexPath.row])
+            
+        }
+        
+        return cell
+        
     }
 }

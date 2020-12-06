@@ -12,10 +12,13 @@ extension AddSpellbookVC {
     
     func layoutView() {
         
-        classButton.isEnabled = false
+        classField.isEnabled = false
         
         layoutTitleBar()
-        layoutNewSpellbookForm()
+        layoutNameField()
+        layoutEditionPicker()
+        layoutClassPicker()
+        layoutSpellsTable()
         
     }
     
@@ -24,92 +27,202 @@ extension AddSpellbookVC {
         let backButton = SystemButton()
         
         titleBar.subtitle = "ADD SPELLBOOK"
-        titleBar.frame = CGRect(x: 0,
-                                y: 20,
-                                width: Shared.screenWidth,
-                                height: 50)
+        titleBar.translatesAutoresizingMaskIntoConstraints = false
         
         backButton.addTarget(self, action: #selector(AddSpellbookVC.backButtonPressed(sender:)), for: .touchUpInside)
-        backButton.frame = CGRect(x: 5,
-                                  y: 5,
-                                  width: 40,
-                                  height: 40)
+        backButton.setTitle("Back", for: .normal)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(titleBar)
-        
         titleBar.addSubview(backButton)
+        
+        let titleBarTop = titleBar.topAnchor.constraint(equalTo: view.topAnchor)
+        let titleBarLeft = titleBar.leftAnchor.constraint(equalTo: view.leftAnchor)
+        let titleBarRight = titleBar.rightAnchor.constraint(equalTo: view.rightAnchor)
+        let titleBarHeight = titleBar.heightAnchor.constraint(equalToConstant: 80)
+        
+        let backWidth = backButton.widthAnchor.constraint(equalToConstant: 40)
+        let backHeight = backButton.heightAnchor.constraint(equalToConstant: 40)
+        let backBottom = backButton.bottomAnchor.constraint(equalTo: titleBar.bottomAnchor, constant: -5)
+        let backLeft = backButton.leftAnchor.constraint(equalTo: titleBar.leftAnchor, constant: 10)
+        
+        let titleBarConstraints = [titleBarTop, titleBarLeft, titleBarRight, titleBarHeight,
+                                   backWidth, backHeight, backBottom, backLeft]
+        
+        NSLayoutConstraint.activate(titleBarConstraints)
         
     }
     
-    func layoutNewSpellbookForm() {
-        
-        let characterNameField = InputField()
+    func layoutNameField() {
         
         characterNameField.title = "CHARACTER NAME"
-        characterNameField.frame = CGRect(x: 0,
-                                          y: 25 + titleBar.frame.height,
-                                          width: Shared.screenWidth,
-                                          height: 35)
-        
-        editionButton.addTarget(self, action: #selector(AddSpellbookVC.editionButtonPressed(sender:)), for: .touchUpInside)
-        editionButton.title = "EDITION"
-        editionButton.frame = CGRect(x: 0,
-                                     y: 25 + titleBar.frame.height + characterNameField.frame.height,
-                                     width: 50,
-                                     height: 35)
-        
-        classButton.addTarget(self, action: #selector(AddSpellbookVC.classButtonPressed(sender:)), for: .touchUpInside)
-        classButton.title = "CLASS"
-        classButton.frame = CGRect(x: editionButton.frame.width,
-                                   y: editionButton.frame.origin.y,
-                                   width: Shared.screenWidth - 50,
-                                   height: 35)
-        
-        spellsTable.dataSource = self
-        spellsTable.delegate = self
-        spellsTable.separatorColor = UIColor.lightGray
-        spellsTable.separatorInset.left = 0
-        spellsTable.separatorInset.right = 0
-        spellsTable.register(SpellCell.self, forCellReuseIdentifier: "spellCell")
-        spellsTable.frame = CGRect(x: 0,
-                                   y: editionButton.frame.maxY,
-                                   width: Shared.screenWidth,
-                                   height: Shared.screenHeight - characterNameField.frame.height - editionButton.frame.height)
+        characterNameField.font = Shared.inputFont
+        characterNameField.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(characterNameField)
-        view.addSubview(editionButton)
-        view.addSubview(classButton)
-        view.addSubview(spellsTable)
+        
+        let nameTop = characterNameField.topAnchor.constraint(equalTo: titleBar.bottomAnchor, constant: 10)
+        let nameLeft = characterNameField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10)
+        let nameRight = characterNameField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10)
+        let nameHeight = characterNameField.heightAnchor.constraint(equalToConstant: 35)
+        
+        let nameConstraints = [nameTop, nameLeft, nameRight, nameHeight]
+        NSLayoutConstraint.activate(nameConstraints)
         
     }
     
     func layoutEditionPicker() {
         
+        let toolbar = UIToolbar()
+        let doneButton = UIBarButtonItem(title: "Done",
+                                         style: UIBarButtonItemStyle.plain,
+                                         target: self,
+                                         action: #selector(AddSpellbookVC.doneEditionPicker(sender:)))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace,
+                                          target: nil,
+                                          action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel",
+                                           style: UIBarButtonItemStyle.plain,
+                                           target: self,
+                                           action: #selector(AddSpellbookVC.doneEditionPicker(sender:)))
+        
+        editionField.title = "EDITION"
+        editionField.font = Shared.inputFont
+        editionField.inputView = editionPickerView
+        editionField.translatesAutoresizingMaskIntoConstraints = false
+        
+        editionPickerView.backgroundColor = .white
+        editionPickerView.translatesAutoresizingMaskIntoConstraints = false
+        editionPickerView.frame = CGRect(x: 0,
+                                  y: Shared.screenHeight - toolbar.frame.height - 200,
+                                  width: Shared.screenWidth,
+                                  height: 200 + toolbar.frame.height)
+        
         editionPicker.dataSource = self
         editionPicker.delegate = self
-        editionPicker.backgroundColor = UIColor.white
-        editionPicker.doneButton.addTarget(self, action: #selector(AddSpellbookVC.updateEdition(sender:)), for: .touchUpInside)
-        editionPicker.frame = CGRect(x: -1,
-                                     y: Shared.screenHeight - 133,
-                                     width: Shared.screenWidth + 2,
-                                     height: 135)
+        editionPicker.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(editionPicker)
+        toolbar.barStyle = UIBarStyle.default
+        toolbar.isTranslucent = true
+        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolbar.items![0].tintColor = UIColor.red
+        toolbar.items![2].tintColor = UIColor.green
+        toolbar.sizeToFit()
+        toolbar.isUserInteractionEnabled = true
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(editionField)
+        editionPickerView.addSubview(editionPicker)
+        editionPickerView.addSubview(toolbar)
+        
+        let editionTop = editionField.topAnchor.constraint(equalTo: characterNameField.bottomAnchor, constant: 1)
+        let editionLeft = editionField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10)
+        let editionWidth = editionField.widthAnchor.constraint(equalToConstant: 50)
+        let editionHeight = editionField.heightAnchor.constraint(equalToConstant: 35)
+        
+        let editionPickerLeft = editionPicker.leftAnchor.constraint(equalTo: editionPickerView.leftAnchor)
+        let editionPickerRight = editionPicker.rightAnchor.constraint(equalTo: editionPickerView.rightAnchor)
+        let editionPickerBottom = editionPicker.bottomAnchor.constraint(equalTo: editionPickerView.bottomAnchor)
+        let editionPickerHeight = editionPicker.heightAnchor.constraint(equalToConstant: 200)
+        
+        let toolbarLeft = toolbar.leftAnchor.constraint(equalTo: editionPickerView.leftAnchor)
+        let toolbarRight = toolbar.rightAnchor.constraint(equalTo: editionPickerView.rightAnchor)
+        let toolbarBottom = toolbar.bottomAnchor.constraint(equalTo: editionPicker.topAnchor)
+        let toolbarHeight = toolbar.heightAnchor.constraint(equalToConstant: 44)
+        
+        let editionConstraints = [editionTop, editionLeft, editionWidth, editionHeight,
+                                  editionPickerLeft, editionPickerRight, editionPickerBottom, editionPickerHeight,
+                                  toolbarLeft, toolbarRight, toolbarBottom, toolbarHeight]
+        NSLayoutConstraint.activate(editionConstraints)
         
     }
     
     func layoutClassPicker() {
         
+        let toolbar = UIToolbar()
+        let doneButton = UIBarButtonItem(title: "Done",
+                                         style: UIBarButtonItemStyle.plain,
+                                         target: self,
+                                         action: #selector(AddSpellbookVC.doneClassPicker(sender:)))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace,
+                                          target: nil,
+                                          action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel",
+                                           style: UIBarButtonItemStyle.plain,
+                                           target: self,
+                                           action: #selector(AddSpellbookVC.doneClassPicker(sender:)))
+        
+        classField.title = "CLASS"
+        classField.font = Shared.inputFont
+        classField.inputView = classPickerView
+        classField.translatesAutoresizingMaskIntoConstraints = false
+        
+        classPickerView.backgroundColor = .white
+        classPickerView.translatesAutoresizingMaskIntoConstraints = false
+        classPickerView.frame = CGRect(x: 0,
+                                       y: Shared.screenHeight - toolbar.frame.height - 200,
+                                       width: Shared.screenWidth,
+                                       height: 200 + toolbar.frame.height)
+        
         classPicker.dataSource = self
         classPicker.delegate = self
         classPicker.backgroundColor = UIColor.white
-        classPicker.doneButton.addTarget(self, action: #selector(AddSpellbookVC.updateClass(sender:)), for: .touchUpInside)
-        classPicker.frame = CGRect(x: -1,
-                                   y: Shared.screenHeight - 133,
-                                   width: Shared.screenWidth + 2,
-                                   height: 135)
+        classPicker.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(classPicker)
+        toolbar.barStyle = UIBarStyle.default
+        toolbar.isTranslucent = true
+        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolbar.items![0].tintColor = UIColor.red
+        toolbar.items![2].tintColor = UIColor.green
+        toolbar.sizeToFit()
+        toolbar.isUserInteractionEnabled = true
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(classField)
+        classPickerView.addSubview(classPicker)
+        classPickerView.addSubview(toolbar)
+        
+        let classTop = classField.topAnchor.constraint(equalTo: characterNameField.bottomAnchor, constant: 1)
+        let classLeft = classField.leftAnchor.constraint(equalTo: editionField.rightAnchor)
+        let classRight = classField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10)
+        let classHeight = classField.heightAnchor.constraint(equalToConstant: 35)
+        
+        let classPickerLeft = classPicker.leftAnchor.constraint(equalTo: classPickerView.leftAnchor)
+        let classPickerRight = classPicker.rightAnchor.constraint(equalTo: classPickerView.rightAnchor)
+        let classPickerBottom = classPicker.bottomAnchor.constraint(equalTo: classPickerView.bottomAnchor)
+        let classPickerHeight = classPicker.heightAnchor.constraint(equalToConstant: 200)
+        
+        let toolbarLeft = toolbar.leftAnchor.constraint(equalTo: classPickerView.leftAnchor)
+        let toolbarRight = toolbar.rightAnchor.constraint(equalTo: classPickerView.rightAnchor)
+        let toolbarBottom = toolbar.bottomAnchor.constraint(equalTo: classPicker.topAnchor)
+        let toolbarHeight = toolbar.heightAnchor.constraint(equalToConstant: 44)
+        
+        let classConstraints = [classTop, classLeft, classRight, classHeight,
+                                classPickerLeft, classPickerRight, classPickerBottom, classPickerHeight,
+                                toolbarLeft, toolbarRight, toolbarBottom, toolbarHeight]
+        NSLayoutConstraint.activate(classConstraints)
+        
+    }
+    
+    func layoutSpellsTable() {
+        
+        spellsTable.dataSource = self
+        spellsTable.delegate = self
+        spellsTable.separatorColor = UIColor.lightGray
+        spellsTable.separatorInset.left = 10
+        spellsTable.separatorInset.right = 10
+        spellsTable.register(SpellCell.self, forCellReuseIdentifier: "spellCell")
+        spellsTable.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(spellsTable)
+        
+        let tableTop = spellsTable.topAnchor.constraint(equalTo: editionField.bottomAnchor, constant: 1)
+        let tableLeft = spellsTable.leftAnchor.constraint(equalTo: view.leftAnchor)
+        let tableRight = spellsTable.rightAnchor.constraint(equalTo: view.rightAnchor)
+        let tableBottom = spellsTable.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        
+        let tableConstraints = [tableTop, tableLeft, tableRight, tableBottom]
+        NSLayoutConstraint.activate(tableConstraints)
         
     }
 }

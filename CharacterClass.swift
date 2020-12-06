@@ -38,18 +38,18 @@ enum CharacterClass: String {
     
     var color: UIColor {
         switch self {
-        case .barbarian: return UIColor.red
-        case .bard: return UIColor.brown
-        case .cleric: return UIColor.blue
-        case .druid: return UIColor.green
-        case .fighter: return UIColor.orange
-        case .monk: return UIColor.brown
-        case .paladin: return UIColor.yellow
-        case .ranger: return UIColor.darkGray
-        case .rogue: return UIColor.black
-        case .sorcerer: return UIColor.magenta
-        case .warlock: return UIColor.purple
-        case .wizard: return UIColor.gray
+        case .barbarian: return UIColor(red: 160, green: 0, blue: 0, alpha: 1)
+        case .bard: return UIColor(red: 230, green: 130, blue: 0, alpha: 1)
+        case .cleric: return UIColor(red: 115, green: 115, blue: 115, alpha: 1)
+        case .druid: return UIColor(red: 125, green: 215, blue: 0, alpha: 1)
+        case .fighter: return UIColor(red: 230, green: 230, blue: 230, alpha: 1)
+        case .monk: return UIColor(red: 235, green: 205, blue: 145, alpha: 1)
+        case .paladin: return UIColor(red: 240, green: 255, blue: 255, alpha: 1)
+        case .ranger: return UIColor(red: 5, green: 95, blue: 0, alpha: 1)
+        case .rogue: return UIColor(red: 55, green: 55, blue: 55, alpha: 1)
+        case .sorcerer: return UIColor(red: 90, green: 30, blue: 130, alpha: 1)
+        case .warlock: return UIColor(red: 170, green: 5, blue: 70, alpha: 1)
+        case .wizard: return UIColor(red: 15, green: 20, blue: 115, alpha: 1)
         }
     }
     

@@ -11,6 +11,10 @@ import UIKit
 
 class TitleBar: UIView {
     
+    let titleBarDivider = UIView()
+    let titleLabel = UILabel()
+    let subtitleLabel = UILabel()
+    
     var subtitle = "TEST"
 
     override func layoutSubviews() {
@@ -23,56 +27,54 @@ class TitleBar: UIView {
         self.layer.shadowOpacity = 0.75
         
         layoutTitleBar()
+        layoutContents()
         
     }
     
     func layoutTitleBar() {
         
-        let titleBarDivider = UIView()
-        
         titleBarDivider.backgroundColor = UIColor.black
-        titleBarDivider.frame = CGRect(x: 0,
-                                       y: self.frame.height,
-                                       width: self.frame.width,
-                                       height: 1)
+        titleBarDivider.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(titleBarDivider)
         
-        layoutTitle()
-        layoutSubtitle()
+        let dividerBottom = titleBarDivider.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        let dividerWidth = titleBarDivider.widthAnchor.constraint(equalTo: self.widthAnchor)
+        let dividerHeight = titleBarDivider.heightAnchor.constraint(equalToConstant: 1)
+        
+        let dividerConstraints = [dividerBottom, dividerWidth, dividerHeight]
+        
+        NSLayoutConstraint.activate(dividerConstraints)
         
     }
-
-    func layoutTitle() {
-        
-        let titleLabel = UILabel()
+    
+    func layoutContents() {
         
         titleLabel.font = UIFont(name: "Hoefler Text", size: 20)
         titleLabel.text = "SPELLBOOK"
         titleLabel.sizeToFit()
-        titleLabel.frame = CGRect(x: self.frame.width / 2 - titleLabel.frame.width / 2,
-                                  y: self.frame.height / 2 - titleLabel.frame.height / 2 - 5,
-                                  width: titleLabel.frame.width,
-                                  height: titleLabel.frame.height)
-        
-        self.addSubview(titleLabel)
-        
-    }
-    
-    func layoutSubtitle() {
-        
-        let subtitleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         subtitleLabel.font = UIFont(name: "Hoefler Text", size: 10)
         subtitleLabel.textColor = UIColor.gray
         subtitleLabel.text = subtitle
         subtitleLabel.sizeToFit()
-        subtitleLabel.frame = CGRect(x: self.frame.width / 2 - subtitleLabel.frame.width / 2,
-                                     y: self.frame.height / 2 - subtitleLabel.frame.height / 2 + 10,
-                                     width: subtitleLabel.frame.width,
-                                     height: subtitleLabel.frame.height)
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        
+        self.addSubview(titleLabel)
         self.addSubview(subtitleLabel)
+        
+        let subtitleBottom = subtitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
+        let subtitleCenterX = subtitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        
+        let titleBottom = titleLabel.bottomAnchor.constraint(equalTo: subtitleLabel.topAnchor, constant: -1)
+        let titleCenterX = titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        
+        let contentsConstraints = [subtitleBottom, subtitleCenterX,
+                                   titleBottom, titleCenterX]
+        
+        NSLayoutConstraint.activate(contentsConstraints)
         
     }
 }

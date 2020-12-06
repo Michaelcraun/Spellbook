@@ -27,11 +27,13 @@ class SpellbookCell: UICollectionViewCell {
     
     func configureCell(spellbook: Spellbook) {
         
+        let spellbookClass = spellbook.characterClass
+        
         layoutTitleLabel(title: spellbook.characterName!)
         layoutEditionLabel(edition: spellbook.edition!)
         
         //MARK: Test calls -- Will replace with items corresponding to CoreData
-        addShadow(color: UIColor.cyan)
+        addShadow(color: .cyan)
         
     }
     

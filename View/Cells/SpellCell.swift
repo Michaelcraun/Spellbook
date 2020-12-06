@@ -29,13 +29,16 @@ class SpellCell: UITableViewCell {
         addSpell.textColor = UIColor.darkGray
         addSpell.text = "Add Spell"
         addSpell.sizeToFit()
-        addSpell.frame = CGRect(x: self.frame.width / 2 - addSpell.frame.width / 2,
-                                y: self.frame.height / 2 - addSpell.frame.height / 2,
-                                width: addSpell.frame.width,
-                                height: addSpell.frame.height)
+        addSpell.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(addSpell)
         
+        let addCenterX = addSpell.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let addCenterY = addSpell.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        
+        let addConstraints = [addCenterX, addCenterY]
+        
+        NSLayoutConstraint.activate(addConstraints)
+        
     }
-
 }
